@@ -23,6 +23,10 @@ export default class downloadService {
 
 		fs.unlinkSync(`./downloads/${fileName}`)
 
-		console.log({ downloadLink: transfer })
+		const today = new Date();
+		const tomorrow = new Date(today);
+		tomorrow.setHours(336, 0, 0, 0);
+
+		console.log({ name: fileName, download: transfer, added: today, expires: tomorrow })
  	}
 }
